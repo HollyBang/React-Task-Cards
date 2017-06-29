@@ -10,7 +10,6 @@ export default class AddCard extends Component {
 
   render() {
     const card = this.props.myItems.data.map((item) => {
-      console.log(item);
       return (
         <li key={item.id}>
           <h3>{item.taskTitle}</h3>
