@@ -55,22 +55,36 @@ header i {
   width: 25%;
   margin-right: auto;
 }
+.task-modal {
+  width: 100%;
+  margin: 0;
+  height: 190px;
+}
 
 .display-item {
   width: 65%;
   margin-left: 50px;
 }
 
-.display-item button {
-  margin-top: 20px;
-  margin-left: auto;
+.display-item .del {
   display: block;
   position: absolute;
   bottom: 5px;
   right: 5px;
   font-family: 'Droid Serif', sans-serif;
 }
-
+.display-item .open {
+  margin: 0;
+  display: block;
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  width: 120px;
+  height: 40.66px;
+  line-height: 9px;
+  font-weight: 100;
+  font-family: 'Droid Serif', sans-serif;
+}
 .add-task form {
   width: 100%;
   overflow: hidden;
@@ -146,7 +160,6 @@ form button {
   text-align: center;
   border-radius: 7px;
   overflow: hidden;
-  position: relative;
   z-index: 0;
   cursor: pointer;
   border: 0;
@@ -221,6 +234,9 @@ form button {
   opacity: 0.01;
   transition: opacity 300ms ease-in;
 }
+
+
+
 @media only screen and (max-width:580px) {
   .container {
     flex-direction: column;
@@ -235,6 +251,13 @@ form button {
     flex: 1;
     padding: 5px;
     margin-bottom: 30px;
+  }
+  .task-modal{
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    height: 190px;
+    padding: 60px 18px;
   }
   input {
     width: 100%;

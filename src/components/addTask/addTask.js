@@ -34,10 +34,10 @@ export default class AddTask extends Component {
       });
     });
   }
-  handleEdit(itemId) {
+  handleEdit(itemId, title, target) {
     const itemRef = firebase.database().ref(`/items/${itemId}`).set({
-      taskTitle: 'lol',
-      taskTarget: 'lol2'
+      taskTitle: title,
+      taskTarget: target
     });
 
   }

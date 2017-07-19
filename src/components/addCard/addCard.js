@@ -1,21 +1,65 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
+import Modal from 'react-awesome-modal';
 
 export default class AddCard extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      taskTitle: '',
+      taskTarget: '',
+      visible: false
+    };
+    this.handleChange = this.handleChange.bind(this);
   };
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
+  openModal() {
+    this.setState({
+      visible: true
+    });
+  }
 
- 
+  closeModal() {
+    this.setState({
+      visible: false
+    });
+  }
 
   render() {
     const card = this.props.myItems.data.map((item) => {
       return (
         <li key={item.id}>
           <h3>{item.taskTitle}</h3>
-          <div onClick={() => this.props.myItems.handleEdit(item.id) }>sadas</div>
+          <Modal
+            visible={this.state.visible}
+            width="400"
+            height="300"
+            effect="fadeInUp"
+            onClickAway={() => this.closeModal()}
+          >
+            <section className='add-task task-modal'>
+              <form >
+                <input onChange={this.handleChange} value={this.state.taskTitle} type="text" name="taskTitle" placeholder="Title" />
+                <input onChange={this.handleChange} value={this.state.taskTarget} type="text" name="taskTarget" placeholder="Target" />
+                <button className="button raised hoverable" onClick={() => this.props.myItems.handleEdit(item.id, this.state.taskTitle, this.state.taskTarget)}>
+                  <div className="anim"></div>
+                  <span>Aplly</span>
+                </button>
+              </form>
+            </section>
+          </Modal>
+
+
           <p>Your target: {item.taskTarget}</p>
-          <button onClick={() => this.props.myItems.removeItem(item.id)} className='button raised hoverable'>
+          <button className="button raised hoverable open" onClick={() => this.openModal()}>
+            <div className="anim"></div>
+            <span>Edit</span>
+          </button>
+          <button onClick={() => this.props.myItems.removeItem(item.id)} className='button raised hoverable del'>
             <div className="anim"></div>
             <span>Delete Card</span>
           </button>
