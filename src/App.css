@@ -71,6 +71,8 @@ header i {
   position: absolute;
   bottom: 5px;
   right: 5px;
+  width: 120px;
+  height: 40.66px;
   font-family: 'Droid Serif', sans-serif;
 }
 .display-item .open {
@@ -235,6 +237,9 @@ form button {
   transition: opacity 300ms ease-in;
 }
 
+.iconBtn {
+  display: none;
+}
 
 
 @media only screen and (max-width:580px) {
@@ -264,6 +269,21 @@ form button {
   }
   .display-item {
     width: 100%;
+  }
+}
+
+@media only screen and (max-width:935px) {
+ .textBtn {
+   display: none;
+ }
+  .iconBtn {
+    display: block;
+  }
+  .button {
+    min-width: 45%;
+  }
+ .display-item .del, .display-item .open {
+    width: 51px;
   }
 }
 

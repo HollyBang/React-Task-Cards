@@ -35,7 +35,7 @@ export default class AddTask extends Component {
     });
   }
   handleEdit(itemId, title, target) {
-    const itemRef = firebase.database().ref(`/items/${itemId}`).set({
+    firebase.database().ref(`/items/${itemId}`).set({
       taskTitle: title,
       taskTarget: target
     });
